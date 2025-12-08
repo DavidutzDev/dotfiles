@@ -1,0 +1,100 @@
+# ~/.config/starship.toml
+
+add_newline = true
+command_timeout = 1000
+
+# 👇 Le \n est ajouté juste avant $character pour un retour à la ligne
+format = """$os$username$hostname$kubernetes$directory$git_branch$git_status\n$character """
+
+# Drop ugly default prompt characters
+[character]
+success_symbol = '[❯](#c972ea bold) '
+error_symbol = '[❯](red bold) '
+
+# ---
+
+[os]
+format = '[$symbol](#c972ea bold) '
+disabled = false
+
+[os.symbols]
+Windows = ' '
+Arch = '󰣇'
+Ubuntu = ''
+Macos = '󰀵'
+
+[username]
+style_user = '#eeeeee bold'
+style_root = 'black bold'
+format = '[$user]($style) '
+disabled = false
+show_always = true
+
+[hostname]
+ssh_only = false
+format = 'on [$hostname](#f8b878 bold) '
+disabled = false
+
+[directory]
+truncation_length = 1
+truncation_symbol = '…/'
+home_symbol = '󰋜 ~'
+read_only_style = '#e76f51'
+read_only = '  '
+style = '#c972ea bold'
+format = 'at [$path]($style)[$read_only]($read_only_style) '
+
+[git_branch]
+symbol = ' '
+format = 'via [$symbol$branch]($style)'
+style = '#4ecdc4 bold'
+
+[git_status]
+format = '([ \( $all_status$ahead_behind\)]($style) )'
+style = '#4ecdc4 bold'
+conflicted = '[ conflicted=${count}](red) '
+up_to_date = '[󰘽 up-to-date](green) '
+untracked = '[󰋗 untracked=${count}](red) '
+ahead = ' ahead=${count}'
+diverged = ' ahead=${ahead_count}  behind=${behind_count}'
+behind = ' behind=${count}'
+stashed = '[ stashed=${count}](green) '
+modified = '[󰛿 modified=${count}](yellow) '
+staged = '[󰐗 staged=${count}](green) '
+renamed = '[󱍸 renamed=${count}](yellow) '
+deleted = '[󰍶 deleted=${count}](red) '
+
+[kubernetes]
+format = 'via [󱃾 $context(\($namespace\))](#c972ea bold) '
+disabled = false
+
+# Force un saut de ligne entre les sections et le prompt
+[line_break]
+disabled = false
+
+# ---
+
+[vagrant]
+disabled = true
+
+[docker_context]
+disabled = true
+
+[helm]
+disabled = true
+
+[python]
+disabled = true
+
+[nodejs]
+disabled = true
+
+[ruby]
+disabled = true
+
+[terraform]
+disabled = true
+# ~/.config/starship.toml
+
+add_newline = true
+command_timeout = 1000
