@@ -1,0 +1,178 @@
+* {
+    font-family: JetBrains Nerd Font;
+    font-weight: 400;
+    font-size: 12px;
+    border-radius: 4px;
+    min-height: 0px;
+}
+
+@define-color foreground #D5D0D7;
+@define-color background #101018;
+
+window#waybar {
+  background-color: transparent;
+  color: #ffffff;
+  border-radius: 0px;
+}
+
+#waybar > box {
+  margin: 4px 8px 0px 8px;
+  background-color: transparent;
+  border-radius: 0px;
+}
+
+tooltip {
+    background: rgb(30, 30, 46);
+    border-radius: 7px;
+}
+
+button {
+    box-shadow: inset 0 3px transparent;
+    border: none;
+    border-radius: 0;
+}
+
+button:hover {
+    background: inherit;
+}
+#workspaces button {
+    color: @foreground;
+    padding: 1px 4px;
+    background-color: @background
+}
+
+#workspaces button:first-child {
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+}
+
+#workspaces button:last-child {
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+}
+
+#workspaces button.visible {
+    color: #D2A6AC;
+    border-bottom: 2px solid #D2A6AC;
+    background-color: #181825;
+}
+
+#workspaces button.focused {
+    color: #a6e3a1;
+
+}
+
+#workspaces button.urgent {
+    color: @foreground;
+    background-color: #45475a;
+}
+
+#custom-launcher
+#clock,
+#cpu,
+#network,
+#memory,
+#pulseaudio,
+#custom-screenrecording-indicator,
+#custom-update,
+#tray-expander{
+    background: @background;
+}
+
+#window,
+
+#workspaces {
+    color: @foreground;
+}
+
+/* If workspaces is the rightmost module, omit right margin */
+.modules-right > widget:last-child > #workspaces {
+    margin-right: 0;
+}
+
+#clock {
+    color: @foreground;
+    background-color: @background;
+    padding: 1px 10px 1px 10px;
+}
+
+
+label:focus {
+    background: rgb(30, 30, 46);
+}
+
+#network {
+    color: #7E8094;
+    padding: 1px 10px 1px 8px;
+}
+
+#custom-screenrecording-indicator {
+    color: #7E8094;
+    padding: 1px 10px 1px 8px;
+}
+
+#custom-update {
+    color: #7E8094;
+    padding: 1px 10px 1px 8px;
+}
+
+#memory {
+    color: #7E8094;
+    padding: 1px 14px 1px 8px;
+}
+
+#disk {
+    background: rgb(30, 30, 46);
+}
+
+#pulseaudio {
+    color: #9F9AAA;
+    padding: 1px 8px 1px 8px;
+}
+
+#pulseaudio.muted {
+    color: @foreground;
+    padding: 1px 8px 1px 8px;
+}
+
+#wireplumber {
+    color: #000000;
+}
+
+#wireplumber.muted {
+    background: rgb(30, 30, 46);
+    padding: 1px 10px 1px 10px;
+    margin-top: 5px;
+}
+
+
+#cpu {
+    color: #D2A6AC;
+    padding: 1px 14px 1px 8px;
+}
+
+
+#tray-expander {
+    color: @foreground;
+    padding: 1px 8px 1px 12px;
+}
+
+#mpris {
+    color: @foreground;
+    background-color: @background;
+    padding: 1px 8px 1px 8px;
+}
+
+#custom-launcher{
+    color: #77798C;
+    background-color: @background;
+    padding: 1px 6px 1px 8px;
+}
+#custom-temperature{
+    color: #897A8B;
+    background-color: @background;
+    padding: 1px 8px 1px 8px;
+}
+#custom-launcher:hover{
+    border-bottom: 2px solid #77798C;
+}

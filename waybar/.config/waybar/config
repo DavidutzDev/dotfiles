@@ -1,0 +1,110 @@
+{
+    "layer": "top", // Waybar at top layer
+    // "position": "bottom", // Waybar position (top|bottom|left|right)
+    "height": 28, // Waybar height (to be removed for auto height)
+    // "width": 1280, // Waybar width
+    "spacing": 3, // Gaps between modules (4px)
+    // Choose the order of the modules
+    "modules-left": [
+        "custom/launcher",
+        "hyprland/workspaces",
+        "custom/screenrecording-indicator",
+        "custom/update",
+    ],
+    "modules-center": [
+	    "clock"
+    ],
+    "modules-right": [
+        "group/tray-expander",
+        "pulseaudio",
+        "network",
+        "memory",
+        "cpu"
+    ],
+    // Modules configuration
+        "hyprland/workspaces": {
+            "format": "{name}",
+            "format-icons": {
+                "active": "",
+                "default": "",
+                "empty": ""
+            },
+            "persistent-workspaces": {
+                "*": [ 1,2,3,4,5 ]
+            }
+    },
+    "group/tray-expander": {
+        "orientation": "inherit",
+        "drawer": {
+            "transition-duration": 600,
+            "children-class": "tray-group-item"
+    },
+    "modules": [
+        "custom/expand-icon",
+        "tray"
+    ]
+   },
+   "custom/expand-icon": {
+        "format": " ",
+        "tooltip": false
+   },
+   "tray": {
+        "icon-size": 14,
+        "spacing": 4
+   },
+    "clock": {
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+        "format-alt": "{:%d-%m-%Y}"
+    },
+    "memory": {
+        "format": "{percentage}% "
+    },
+    "cpu": {
+        "format": "{usage}% "
+    },
+    "pulseaudio": {
+        "format": "{icon:2}  {volume}%",
+        "format-alt": "{icon:2}  {volume}%",
+        "format-alt-click": "click-right",
+        "format-muted": "",
+        "format-icons": {
+            "phone": [" ", " ", " ", " "],
+            "default": ["", "", "", ""]
+        },
+        "scroll-step": 2,
+        "on-click": "pavucontrol",
+        "tooltip": false
+    },
+    "custom/launcher":{
+        "format": " ",
+        "on-click": "omarchy-menu",
+        "on-click-right": "xdg-terminal-exec",
+        "tooltip": false
+    },
+    "custom/update": {
+      "format": "",
+      "exec": "omarchy-update-available",
+      "on-click": "omarchy-launch-floating-terminal-with-presentation omarchy-update",
+      "tooltip-format": "Omarchy update available",
+      "signal": 7,
+      "interval": 21600
+    },
+    "network": {
+      "format-icons": ["󰤯", "󰤟", "󰤢", "󰤥", "󰤨"],
+      "format": "{icon}",
+      "format-wifi": "{icon}",
+      "format-ethernet": "󰀂",
+      "format-disconnected": "󰤮",
+      "tooltip-format-wifi": "{essid} ({frequency} GHz)\n⇣{bandwidthDownBytes}  ⇡{bandwidthUpBytes}",
+      "tooltip-format-ethernet": "⇣{bandwidthDownBytes}  ⇡{bandwidthUpBytes}",
+      "tooltip-format-disconnected": "Disconnected",
+      "interval": 3,
+      "on-click": "omarchy-launch-wifi"
+    },
+    "custom/screenrecording-indicator": {
+      "on-click": "omarchy-cmd-screenrecord",
+      "exec": "$OMARCHY_PATH/default/waybar/indicators/screen-recording.sh",
+      "signal": 8,
+      "return-type": "json"
+    },
+}
