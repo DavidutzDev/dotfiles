@@ -58,3 +58,7 @@ fish_add_path ~/.local/bin
 
 # Extras
 starship init fish | source
+
+if [ -f ~/work/unxwares/config/shell.fish ]
+    source ~/work/unxwares/config/shell.fish
+end
