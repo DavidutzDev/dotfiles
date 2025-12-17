@@ -16,7 +16,7 @@ lang.register("typescript", {
 				"typescript",
 				"typescriptreact",
 				"typescript.jsx",
-				"svelete",
+				"svelte",
 				"vue",
 			},
 			settings = {
