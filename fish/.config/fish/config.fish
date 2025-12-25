@@ -39,6 +39,8 @@ alias ....='cd ../../..'
 alias d='docker'
 alias r='rails'
 
+set -gx KUBECONFIG ~/work/unxwares/config/config.kubeconfig
+
 function n
     if test (count $argv) -eq 0
         nvim .
