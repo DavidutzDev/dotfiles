@@ -58,9 +58,12 @@ tmux send-keys -t "$SESSION:scratch" "clear" C-m
 new_window "runner"
 tmux select-window -t "$SESSION:runner"
 
+new_window "logs"
+
 # setups
 
 setup_laravel() {
+  # runner
   tmux kill-pane -a
 
   tmux split-window -h
@@ -69,6 +72,10 @@ setup_laravel() {
 
   tmux select-pane -R
   tmux send-keys "pnpm dev" C-m
+
+  # logs
+  tmux select-window -t "$SESSION:logs"
+  tmux send-keys "tail -f storage/logs/laravel.log" C-m
 }
 
 if has_file artisan && has_file package.json; then
