@@ -176,3 +176,12 @@ label:focus {
 #custom-launcher:hover{
     border-bottom: 2px solid #77798C;
 }
+
+#custom-voxtype {
+  min-width: 12px;
+  margin: 0 0 0 7.5px;
+}
+
+#custom-voxtype.recording {
+  color: #a55555;
+}

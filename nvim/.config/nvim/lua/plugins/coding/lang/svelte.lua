@@ -2,7 +2,7 @@ local lang = require("utils.lang")
 
 lang.register("svelte", {
 	mason = { "svelte-language-server" },
-	treesitter = { "svelte" },
+	treesitter = { "svelte", "scss", "javascript", "typescript", "html", "css" },
 	none_ls = {},
 	lsp = {
 		svelte = {
