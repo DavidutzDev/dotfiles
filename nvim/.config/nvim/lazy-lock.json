@@ -1,6 +1,7 @@
 {
   "SchemaStore.nvim": { "branch": "main", "commit": "fb5f164a28f8fd5a052da512436d4173e06cf71e" },
   "blink.cmp": { "branch": "main", "commit": "b19413d214068f316c78978b08264ed1c41830ec" },
+  "cord.nvim": { "branch": "master", "commit": "08b12a191cb9a67aa7f30bc221a1b491bf456032" },
   "desert-night.nvim": { "branch": "main", "commit": "acbc26693bbbde8b59603a7768bb71768022483f" },
   "flash.nvim": { "branch": "main", "commit": "fcea7ff883235d9024dc41e638f164a450c14ca2" },
   "friendly-snippets": { "branch": "main", "commit": "572f5660cf05f8cd8834e096d7b4c921ba18e175" },
