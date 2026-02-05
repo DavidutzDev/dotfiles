@@ -21,7 +21,7 @@ PWD="$(pwd)"
 
 if [[ "$PWD" != "$ROOT_PERSONAL"* && "$PWD" != "$ROOT_WORK"* ]]; then
   clear
-  return 0
+  exit 0
 fi
 
 SESSION="$(tmux display-message -p '#S')"
