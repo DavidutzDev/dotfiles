@@ -16,6 +16,7 @@
     ],
     "modules-right": [
         "group/tray-expander",
+        "custom/mic-muted",
         "pulseaudio",
         "network",
         "memory",
@@ -88,6 +89,14 @@
       "tooltip-format": "Omarchy update available",
       "signal": 7,
       "interval": 21600
+    },
+    "custom/mic-muted": {
+        "exec": "~/.config/waybar/scripts/mic-muted.sh",
+        "return-type": "json",
+        "interval": "once",
+        "signal": 9,
+        "on-click": "~/.custom-scripts/toggle-mic.sh",
+        "tooltip": true
     },
     "network": {
       "format-icons": ["󰤯", "󰤟", "󰤢", "󰤥", "󰤨"],
