@@ -74,7 +74,7 @@ button:hover {
 #network,
 #memory,
 #pulseaudio,
-#custom-screenrecording-indicator,
+
 #custom-update,
 #tray-expander{
     background: @background;
@@ -112,7 +112,7 @@ label:focus {
     padding: 2px 10px 2px 8px;
 }
 
-#custom-screenrecording-indicator {
+#custom-mic-muted {
     color: #7e8094;
     padding: 1px 10px 1px 8px;
 }
@@ -195,5 +195,10 @@ label:focus {
 }
 
 #custom-voxtype.recording {
+  color: #a55555;
+}
+
+#custom-idle-indicator.active,
+#custom-notification-silencing-indicator.active {
   color: #a55555;
 }
