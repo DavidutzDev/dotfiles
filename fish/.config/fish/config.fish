@@ -57,6 +57,7 @@ end
 
 # Env
 fish_add_path ~/.local/bin
+fish_add_path ~/.opencode/bin
 
 # Extras
 starship init fish | source
