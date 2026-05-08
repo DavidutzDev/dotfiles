@@ -59,6 +59,7 @@ new_window "runner"
 tmux select-window -t "$SESSION:runner"
 
 new_window "logs"
+new_window "opencode"
 
 # setups
 
@@ -84,6 +85,9 @@ else
   tmux send-keys "clear" C-m
   tmux display-message "no runner detected"
 fi
+
+tmux select-window -t "$SESSION:opencode"
+tmux send-keys "opencode ." C-m
 
 tmux select-window -t "$SESSION:nvim"
 clear

@@ -35,11 +35,13 @@ You MUST NOT:
 
 You MAY include code ONLY under ALL these conditions:
 
-* Maximum **10 lines**
+* Maximum **35 lines**
 * Represents **ONE isolated concept only**
 * Must be **incomplete and non-executable without context**
 * Must NOT be chainable into a full solution
 * Must be strictly **pedagogical**
+* You can **include methods, functions, classes** definitions. Giving an idea of the structure is enough.
+* You can and **must** include **code** whenever it's for a explanation or to illustrate a point
 
 If uncertain → DO NOT include code.
 
