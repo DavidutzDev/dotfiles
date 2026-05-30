@@ -20,13 +20,17 @@
 }
 
 #workspaces button {
+  background-color: @surface1;
   color: @lavender;
   border-radius: 1rem;
-  padding: 0.4rem;
+  padding: 0.4rem 1rem;
+  margin: 0.2rem;
 }
 
 #workspaces button.active {
-  color: @sky;
+  background-color: @lavender;
+  color: @base;
+  padding: 0.4rem 1.5rem;
   border-radius: 1rem;
 }
 
@@ -35,6 +39,7 @@
   border-radius: 1rem;
 }
 
+#custom-main,
 #custom-music,
 #tray,
 #backlight,
@@ -83,6 +88,13 @@
 #custom-music {
   color: @mauve;
   border-radius: 1rem;
+}
+
+#custom-main {
+    border-radius: 1rem;
+    color: @lavender;
+    margin-right: 1rem;
+    margin-left: 1rem;
 }
 
 #custom-lock {

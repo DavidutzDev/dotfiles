@@ -1,23 +1,33 @@
 {
     "layer": "top", 
     "position": "top", 
-    "modules-left": ["hyprland/workspaces"],
-    "modules-center": ["custom/music"],
+    "modules-left": ["custom/main", "custom/music"],
+    "modules-center": ["hyprland/workspaces"],
     "modules-right": ["pulseaudio", "clock", "tray", "custom/lock"],
     "hyprland/workspaces": {
          "disable-scroll": true,
          "sort-by-name": true,
-         "format": " {icon} ",
+         "format": "{icon}",
          "format-icons": {
-             "default": ""
+            "1": "󰈹",
+            "2": "",
+            "3": "",
+            "4": "",
+            "5": "",
+            "0": "",
+            "default": ""
          },
-	 "persistent-workspaces": {
-	     "*": 5
-	 }
-     },
+        "persistent-workspaces": {
+            "*": 5,
+        },
+    },
     "tray": {
         "icon-size": 21,
         "spacing": 10
+    },
+    "custom/main": {
+        "format": "󰣇",
+        "on-click": "walker"
     },
     "custom/music": {
         "format": "  {}",
@@ -45,7 +55,7 @@
     },
     "custom/lock": {
         "tooltip": false,
-        "on-click": "sh -c '(sleep 0.5s; swaylock --grace 0)' & disown",
-        "format": ""
+        "on-click": "walker -m menus:powermenu",
+        "format": "󰐥"
     }
 }
