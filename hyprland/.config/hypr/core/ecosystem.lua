@@ -6,6 +6,7 @@ M.commands = {
 	lock = "hyprlock",
 	reload = "hyprctl reload",
 	logout = "command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch 'hl.dsp.exit()'",
+	paste = "sh -c 'wl-paste -n >/dev/null 2>&1 || cliphist list | head -n1 | cliphist decode | wl-copy --trim-newline; sleep 0.02; wtype -M shift -k Insert -m shift'",
 }
 
 --- Override one action's command.

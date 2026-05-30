@@ -67,10 +67,6 @@ max_results = 50 # global max results
 [providers.max_results_provider] # define max results per provider in here
 
 [[providers.prefixes]]
-prefix = "#"
-provider = "menus:bookmarks"
-
-[[providers.prefixes]]
 prefix = ";"
 provider = "providerlist"
 

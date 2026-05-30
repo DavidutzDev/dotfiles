@@ -8,4 +8,9 @@ Hyprland.Autostart.setSession({
 	"gsettings set org.gnome.desktop.interface icon-theme 'Adawaita'",
 	"gsettings set org.gnome.desktop.interface cursor-theme 'default'",
 	"gsettings set org.gnome.desktop.interface font-theme 'JetBrainsMonoNL Nerd Font Medium 11'",
+
+	"cliphist wipe",
+	"sh -c 'wl-copy --clear; wl-copy --primary --clear'",
+	"wl-paste --type text --watch cliphist store &",
+	"wl-paste --type image --watch cliphist store &",
 })
