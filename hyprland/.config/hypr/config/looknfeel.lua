@@ -1,9 +1,5 @@
------------------------
----- LOOK AND FEEL ----
------------------------
-local theme = require("modules.themes.catppuccin-mocha")
+local theme = require("themes.catppuccin-mocha")
 
--- Refer to https://wiki.hypr.land/Configuring/Basics/Variables/
 hl.config({
 	general = {
 		gaps_in = 5,

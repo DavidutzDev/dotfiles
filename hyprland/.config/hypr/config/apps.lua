@@ -1,38 +1,80 @@
-local M = {}
+local Hyprland = require("core")
+local mod = Hyprland.Bindings.Modifiers
 
-M.terminal = "ghostty"
-M.notifications = "swaync-client -t -sw"
-M.browser = {
-	launch = "zen-browser",
-	class = "zen-browser",
-}
-M.discord = {
-	launch = "discord",
+Hyprland.Applications.register({
+	name = "screenshot-utility",
+	cmd = "satty",
+	class = "com.gabm.satty",
+	float = true,
+})
+
+Hyprland.Applications.register({
+	name = "wallpaper",
+	cmd = "awww-daemon",
+	autostart = true,
+})
+
+Hyprland.Applications.register({
+	name = "bar",
+	cmd = "waybar",
+	autostart = true,
+})
+
+Hyprland.Applications.register({
+	name = "terminal",
+	cmd = "ghostty",
+	class = "com.mitchellh.ghostty",
+	binding = Hyprland.Bindings.NewLeader({}, "RETURN"),
+})
+
+Hyprland.Applications.register({
+	name = "nc",
+	cmd = "swaync-client -t -sw",
+	binding = Hyprland.Bindings.NewLeader({}, "N"),
+})
+
+Hyprland.Applications.register({
+	name = "browser",
+	cmd = "zen-browser",
+	binding = Hyprland.Bindings.NewLeader({ mod.SHIFT }, "B"),
+})
+
+Hyprland.Applications.register({
+	name = "discord",
+	cmd = "discord",
 	class = "discord",
-}
-M.fileManager = "thunar"
-M.menu = "walker"
-M.music = {
-	launch = "spotify-launcher",
+	workspace = "10",
+	binding = Hyprland.Bindings.NewLeader({ mod.SHIFT }, "D"),
+})
+
+Hyprland.Applications.register({
+	name = "fileManager",
+	cmd = "thunar",
+	binding = Hyprland.Bindings.NewLeader({ mod.SHIFT }, "F"),
+})
+
+Hyprland.Applications.register({
+	name = "menu",
+	cmd = "walker",
+	binding = Hyprland.Bindings.NewLeader({}, "SPACE"),
+})
+
+Hyprland.Applications.register({
+	name = "menu-service",
+	cmd = "walker --gapplication-service",
+	autostart = true,
+})
+
+Hyprland.Applications.register({
+	name = "menu-provider",
+	cmd = "elephant",
+	autostart = true,
+})
+
+Hyprland.Applications.register({
+	name = "music",
+	cmd = "spotify-launcher",
 	class = "Spotify",
-}
-
--- Helpers
-
-function M:get_launch(app_name)
-	local target = self[app_name]
-	if type(target) == "table" then
-		return target.launch
-	end
-	return target
-end
-
-function M:get_class(app_name)
-	local target = self[app_name]
-	if type(target) == "table" and target.class then
-		return target.class
-	end
-	return target
-end
-
-return M
+	workspace = "10",
+	binding = Hyprland.Bindings.NewLeader({ mod.SHIFT }, "M"),
+})

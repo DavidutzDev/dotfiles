@@ -1,7 +1,3 @@
----------------
----- INPUT ----
----------------
-
 hl.config({
 	input = {
 		kb_layout = "gb",
@@ -12,7 +8,7 @@ hl.config({
 
 		follow_mouse = 1,
 
-		sensitivity = 0, -- -1.0 - 1.0, 0 means no modification.
+		sensitivity = 0,
 
 		touchpad = {
 			natural_scroll = false,
