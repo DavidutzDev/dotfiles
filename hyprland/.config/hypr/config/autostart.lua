@@ -13,4 +13,5 @@ Hyprland.Autostart.setSession({
 	"sh -c 'wl-copy --clear; wl-copy --primary --clear'",
 	"wl-paste --type text --watch cliphist store &",
 	"wl-paste --type image --watch cliphist store &",
+	"wl-clip-persist --clipboard regular &",
 })

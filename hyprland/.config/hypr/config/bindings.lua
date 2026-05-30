@@ -19,7 +19,6 @@ Bindings.Bind(Bindings.NewLeader({}, "L"), Ecosystem.actions.lock)
 Bindings.Bind(Bindings.NewLeader({}, "R"), Ecosystem.actions.reload)
 Bindings.Bind(Bindings.NewLeader({}, "M"), Ecosystem.actions.logout)
 Bindings.Bind(Bindings.New({}, "PRINT"), Ecosystem.actions.screenshot)
--- Bindings.Bind(Bindings.New({ mod.CTRL }, "V"), Ecosystem.actions.paste)
 
 -- window management
 Bindings.Bind(Bindings.NewLeader({}, "W"), hl.dsp.window.close())
