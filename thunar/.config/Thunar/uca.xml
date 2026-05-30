@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<actions>
+  <action>
+    <icon>utilities-terminal</icon>
+    <name>Open Terminal Here</name>
+    <submenu></submenu>
+    <unique-id>1780002356864676-1</unique-id>
+    <command>ghostty --working-directory=%f</command>
+    <description>Open Ghostty</description>
+    <range></range>
+    <patterns>*</patterns>
+    <startup-notify/>
+    <directories/>
+  </action>
+  <action>
+    <icon>nvim</icon>
+    <name>Open in Neovim</name>
+    <submenu></submenu>
+    <unique-id>1780002356864676-2</unique-id>
+    <command>ghostty -e nvim %f</command>
+    <description>Open file in Neovim via Ghostty</description>
+    <range></range>
+    <patterns>*</patterns>
+    <startup-notify/>
+    <files/>
+  </action>
+  <action>
+    <icon>archive-extract</icon>
+    <name>Extract Here</name>
+    <submenu></submenu>
+    <unique-id>1780002356864676-3</unique-id>
+    <command>ouch decompress %F</command>
+    <description>Extract any archive type</description>
+    <range></range>
+    <patterns>*.tar;*.tar.gz;*.tgz;*.zip;*.rar;*.7z;*.tar.xz;*.tar.bz2</patterns>
+    <startup-notify/>
+    <other-files/>
+  </action>
+</actions>
