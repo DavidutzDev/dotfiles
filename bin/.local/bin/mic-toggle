@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+pactl set-source-mute @DEFAULT_SOURCE@ toggle
+
+if pactl get-source-mute @DEFAULT_SOURCE@ | grep -q yes; then
+  STATUS="Muted"
+  ICON="audio-input-microphone-muted"
+else
+  STATUS="Unmuted"
+  ICON="audio-input-microphone"
+fi
+
+notify-send "Microphone status updated: $STATUS" \
+  --app-name="System" \
+  -i "$ICON" \
+  -u normal \
+  -h string:x-canonical-private-synchronous:mic-toggle
+
+pkill -SIGRTMIN+9 waybar

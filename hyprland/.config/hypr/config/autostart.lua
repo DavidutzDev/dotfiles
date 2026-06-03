@@ -5,7 +5,7 @@ Hyprland.Autostart.setSession({
 	"systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP",
 	"/usr/lib/xdg-desktop-portal-hyprland &",
 	"gsettings set org.gnome.desktop.interface gtk-theme 'catppuccin-mocha-lavender-standard+default'",
-	"gsettings set org.gnome.desktop.interface icon-theme 'Adawaita'",
+	"gsettings set org.gnome.desktop.interface icon-theme 'Adwaita'",
 	"gsettings set org.gnome.desktop.interface cursor-theme 'default'",
 	"gsettings set org.gnome.desktop.interface font-theme 'JetBrainsMonoNL Nerd Font Medium 11'",
 

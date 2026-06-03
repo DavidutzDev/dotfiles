@@ -15,6 +15,10 @@ Bindings.Bind(Bindings.NewLeader({}, "V"), function()
 	hl.exec_cmd(menu .. " -m menus:clipboard")
 end)
 
+Bindings.Bind(Bindings.NewLeader({}, "Backspace"), function()
+	hl.exec_cmd("~/.local/bin/mic-toggle")
+end)
+
 Bindings.Bind(Bindings.NewLeader({}, "L"), Ecosystem.actions.lock)
 Bindings.Bind(Bindings.NewLeader({}, "R"), Ecosystem.actions.reload)
 Bindings.Bind(Bindings.NewLeader({}, "M"), Ecosystem.actions.logout)

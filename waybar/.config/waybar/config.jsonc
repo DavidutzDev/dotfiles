@@ -3,7 +3,7 @@
     "position": "top", 
     "modules-left": ["custom/main", "custom/music"],
     "modules-center": ["hyprland/workspaces"],
-    "modules-right": ["pulseaudio", "clock", "tray", "custom/lock"],
+    "modules-right": ["custom/mic", "pulseaudio", "clock", "tray", "custom/lock"],
     "hyprland/workspaces": {
          "disable-scroll": true,
          "sort-by-name": true,
@@ -52,6 +52,14 @@
             "default": ["", "", " "]
         },
         "on-click": "pavucontrol"
+    },
+    "custom/mic": {
+        "exec": "~/.local/bin/mic-status",
+        "return-type": "json",
+        "interval": "once",
+        "signal": 9,
+        "on-click": "~/.local/bin/mic-toggle",
+        "tooltip": true
     },
     "custom/lock": {
         "tooltip": false,
