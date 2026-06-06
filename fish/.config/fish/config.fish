@@ -101,3 +101,8 @@ end
 function backup --argument filename
     cp $filename $filename.bak
 end
+
+# Don't try to peek and see my naughty secret stuff
+if [ -f ~/work/unxwares/config/shell.fish ]
+    source ~/work/unxwares/config/shell.fish
+end
