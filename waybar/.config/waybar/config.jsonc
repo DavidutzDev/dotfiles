@@ -34,8 +34,8 @@
         "escape": true,
         "interval": 5,
         "tooltip": false,
-        "exec": "playerctl metadata --format='{{ title }}'",
-        "on-click": "playerctl play-pause",
+        "exec": "playerctl --player=spotify,%any metadata --format='{{ title }}'",
+        "on-click": "playerctl --player=spotify,%any play-pause",
         "max-length": 50
     },
     "clock": {

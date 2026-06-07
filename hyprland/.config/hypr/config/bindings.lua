@@ -89,3 +89,30 @@ Bindings.Bind(
 	hl.dsp.exec_cmd("brightnessctl s 5%-"),
 	{ locked = true, repeating = true }
 )
+
+-- media transport keys
+Bindings.Bind(
+	Bindings.New({}, "XF86AudioPlay"),
+	hl.dsp.exec_cmd("playerctl --player=spotify,%any play-pause"),
+	{ locked = true }
+)
+Bindings.Bind(
+	Bindings.New({}, "XF86AudioPause"),
+	hl.dsp.exec_cmd("playerctl --player=spotify,%any play-pause"),
+	{ locked = true }
+)
+Bindings.Bind(
+	Bindings.New({}, "XF86AudioNext"),
+	hl.dsp.exec_cmd("playerctl --player=spotify,%any next"),
+	{ locked = true }
+)
+Bindings.Bind(
+	Bindings.New({}, "XF86AudioPrev"),
+	hl.dsp.exec_cmd("playerctl --player=spotify,%any previous"),
+	{ locked = true }
+)
+Bindings.Bind(
+	Bindings.New({}, "XF86AudioStop"),
+	hl.dsp.exec_cmd("playerctl --player=spotify,%any stop"),
+	{ locked = true }
+)

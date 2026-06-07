@@ -41,8 +41,8 @@ Hyprland.Applications.register({
 
 Hyprland.Applications.register({
 	name = "discord",
-	cmd = "discord",
-	class = "discord",
+	cmd = "legcord --enable-features=WebRTCPipeWireCapturer --ozone-platform-hint=auto --enable-webrtc-pipewire-capturer",
+	class = "legcord",
 	workspace = "10",
 	binding = Hyprland.Bindings.NewLeader({ mod.SHIFT }, "D"),
 })
