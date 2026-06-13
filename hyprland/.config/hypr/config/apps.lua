@@ -78,3 +78,18 @@ Hyprland.Applications.register({
 	workspace = "10",
 	binding = Hyprland.Bindings.NewLeader({ mod.SHIFT }, "M"),
 })
+
+Hyprland.Applications.register({
+	name = "wepapered-gui",
+	cmd = "wepaperedctl gui",
+	class = "Wepapered-gui",
+	autostart = true,
+	float = true,
+	binding = Hyprland.Bindings.NewLeader({ mod.SHIFT }, "W"),
+})
+
+Hyprland.Applications.register({
+	name = "wepapered-daemon",
+	cmd = "wepaperedctl daemon",
+	autostart = true,
+})
