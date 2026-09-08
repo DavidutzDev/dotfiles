@@ -29,8 +29,9 @@ Hyprland.Applications.register({
 
 Hyprland.Applications.register({
 	name = "discord",
-	cmd = "legcord --enable-features=UseOzonePlatform,WebRTCPipeWireCapturer --ozone-platform=wayland --enable-gpu-rasterization --enable-zero-copy --ignore-gpu-blocklist %U",
-	class = "legcord",
+	-- WebRTCPipeWireCapturer is what makes screen sharing work on Wayland.
+	cmd = "discord --enable-features=UseOzonePlatform,WebRTCPipeWireCapturer --ozone-platform=wayland --enable-gpu-rasterization --enable-zero-copy --ignore-gpu-blocklist",
+	class = "discord",
 	workspace = "10",
 	binding = Hyprland.Bindings.NewLeader({ mod.SHIFT }, "D"),
 })
