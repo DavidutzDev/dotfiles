@@ -30,8 +30,11 @@ hl.bind(mod .. " + V", odyssey("clipboard toggle"))
 hl.bind(mod .. " + comma", odyssey("settings open"))
 hl.bind(mod .. " + N", odyssey("notifications toggle"))
 hl.bind(mod .. " + Y", odyssey("insights wallpaper"))
+-- SUPER + L is the lock key we have always used; ALT + L is Odyssey's own and
+-- costs nothing to keep. SUPER + SHIFT + S stays free for the special workspace,
+-- so the region screenshot lives only on SUPER + SHIFT + F.
+hl.bind(mod .. " + L", odyssey("session lock"))
 hl.bind(mod .. " + ALT + L", odyssey("session lock"))
-hl.bind(mod .. " + SHIFT + S", odyssey("capture screenshot region both"))
 hl.bind(mod .. " + SHIFT + R", odyssey("capture record region"))
 
 -- Audio controls
@@ -55,11 +58,16 @@ hl.bind("XF86MonBrightnessUp", hl.dsp.exec_cmd("brightnessctl -e4 -n2 set 5%+"),
 hl.bind("XF86MonBrightnessDown", hl.dsp.exec_cmd("brightnessctl -e4 -n2 set 5%-"), { locked = true, repeating = true })
 
 -- Window management
+-- SUPER + W closes and SUPER + M logs out, as they always have. Odyssey puts
+-- close on Q, group toggle on W and fullscreen on M; Q is kept as a harmless
+-- second close, group toggle moves to G, and Odyssey's SUPER + M fullscreen is
+-- dropped because SUPER + CTRL + F already does exactly that.
+hl.bind(mod .. " + W", hl.dsp.window.close())
 hl.bind(mod .. " + Q", hl.dsp.window.close())
-hl.bind(mod .. " + F", hl.dsp.window.fullscreen({ mode = 1 }))
+hl.bind(mod .. " + F", hl.dsp.window.fullscreen({ "fullscreen", "toggle" }))
 hl.bind(mod .. " + T", hl.dsp.window.float({ action = "toggle" }))
-hl.bind(mod .. " + W", hl.dsp.group.toggle())
-hl.bind(mod .. " + M", hl.dsp.window.fullscreen())
+hl.bind(mod .. " + G", hl.dsp.group.toggle())
+hl.bind(mod .. " + M", Ecosystem.actions.logout)
 
 -- Focus navigation
 hl.bind(mod .. " + left", hl.dsp.focus({ direction = "left" }))
@@ -110,6 +118,8 @@ hl.bind(mod .. " + SHIFT + I", hl.dsp.window.move({ workspace = "e-1" }))
 -- Mouse-wheel workspace navigation
 hl.bind(mod .. " + mouse_down", hl.dsp.focus({ workspace = "e+1" }))
 hl.bind(mod .. " + mouse_up", hl.dsp.focus({ workspace = "e-1" }))
+hl.bind(mod .. " + SHIFT + mouse_down", hl.dsp.focus({ workspace = "e+1" }))
+hl.bind(mod .. " + SHIFT + mouse_up", hl.dsp.focus({ workspace = "e-1" }))
 hl.bind(mod .. " + CTRL + mouse_down", hl.dsp.window.move({ workspace = "e+1" }))
 hl.bind(mod .. " + CTRL + mouse_up", hl.dsp.window.move({ workspace = "e-1" }))
 
@@ -126,6 +136,10 @@ hl.bind(mod .. " + SHIFT + 0", hl.dsp.window.move({ workspace = 10 }))
 hl.bind(mod .. " + ALT + 0", hl.dsp.window.move({ workspace = 10, silent = true }))
 
 -- Special workspaces
+-- SUPER + S and SUPER + SHIFT + S are the scratchpad keys we have always used.
+-- Odyssey's F1/F2 set is kept alongside; it collides with nothing.
+hl.bind(mod .. " + S", hl.dsp.workspace.toggle_special("magic"))
+hl.bind(mod .. " + SHIFT + S", hl.dsp.window.move({ workspace = "special:magic" }))
 hl.bind(mod .. " + F1", hl.dsp.workspace.toggle_special("magic"))
 hl.bind(mod .. " + SHIFT + F1", hl.dsp.window.move({ workspace = "special:magic" }))
 hl.bind(mod .. " + ALT + F1", hl.dsp.window.move({ workspace = "special:magic", silent = true }))
@@ -168,8 +182,6 @@ hl.bind("ALT + Print", odyssey("capture screenshot active copy"))
 -- Power actions live in Odyssey's island SessionPage, so no powermenu key here.
 hl.bind(mod .. " + Backspace", hl.dsp.exec_cmd("~/.local/bin/mic-toggle"))
 hl.bind(mod .. " + R", Ecosystem.actions.reload)
--- Odyssey binds SUPER + M to fullscreen, so logout moves beside SUPER + ALT + L.
-hl.bind(mod .. " + ALT + M", Ecosystem.actions.logout)
 
 -- Media transport; Odyssey exposes no player IPC target.
 hl.bind("XF86AudioPlay", hl.dsp.exec_cmd("playerctl --player=spotify,%any play-pause"), { locked = true })
