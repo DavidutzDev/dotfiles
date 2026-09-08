@@ -17,5 +17,3 @@ notify-send "Microphone status updated: $STATUS" \
   -i "$ICON" \
   -u normal \
   -h string:x-canonical-private-synchronous:mic-toggle
-
-pkill -SIGRTMIN+9 waybar
