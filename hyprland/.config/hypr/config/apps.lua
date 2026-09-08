@@ -38,7 +38,7 @@ Hyprland.Applications.register({
 Hyprland.Applications.register({
 	name = "fileManager",
 	cmd = "nautilus",
-	binding = Hyprland.Bindings.NewLeader({}, "E"),
+	binding = Hyprland.Bindings.NewLeader({ mod.SHIFT }, "F"),
 })
 
 Hyprland.Applications.register({

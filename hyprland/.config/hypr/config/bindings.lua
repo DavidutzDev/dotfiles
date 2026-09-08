@@ -1,9 +1,11 @@
 -- Keybindings
 --
--- Odyssey's key map, with launchers left in config/apps.lua so the applications
--- stay ours. Shell surfaces Odyssey owns (launcher, clipboard, notifications,
--- control centre, wallpaper, lock, capture) are bound in ~/.config/hypr/odyssey.lua
--- and are deliberately absent here.
+-- Our own key map. Odyssey's layout supplies what we had no binding for
+-- (monitor navigation, preselect, resize, extra workspace cycling); every key
+-- that was already ours keeps the combo it always had.
+--
+-- Application launchers live in config/apps.lua. Odyssey's shell surfaces are
+-- bound below rather than in ~/.config/hypr/odyssey.lua — see the note there.
 
 local Hyprland = require("core")
 local Ecosystem = Hyprland.Ecosystem
@@ -31,8 +33,8 @@ hl.bind(mod .. " + comma", odyssey("settings open"))
 hl.bind(mod .. " + N", odyssey("notifications toggle"))
 hl.bind(mod .. " + Y", odyssey("insights wallpaper"))
 -- SUPER + L is the lock key we have always used; ALT + L is Odyssey's own and
--- costs nothing to keep. SUPER + SHIFT + S stays free for the special workspace,
--- so the region screenshot lives only on SUPER + SHIFT + F.
+-- costs nothing to keep. Region screenshots live on Print, so SUPER + SHIFT + S
+-- stays free for the scratchpad and SUPER + SHIFT + F for the file manager.
 hl.bind(mod .. " + L", odyssey("session lock"))
 hl.bind(mod .. " + ALT + L", odyssey("session lock"))
 hl.bind(mod .. " + SHIFT + R", odyssey("capture record region"))
@@ -44,9 +46,8 @@ hl.bind("XF86AudioMute", odyssey("audio mute"), { locked = true })
 hl.bind("XF86AudioMicMute", odyssey("audio micmute"), { locked = true })
 
 -- Application launchers
--- Terminal, browser, and file manager live in config/apps.lua on Odyssey's keys.
+-- Terminal, browser and file manager live in config/apps.lua on our own keys.
 hl.bind(mod .. " + SHIFT + C", hl.dsp.exec_cmd("code"))
-hl.bind(mod .. " + SHIFT + F", odyssey("capture screenshot region both"))
 
 -- Keyboard backlight
 -- Uses the standard Linux keyboard-backlight LED device when available.
@@ -174,7 +175,9 @@ hl.bind(mod .. " + SHIFT + equal", hl.dsp.window.resize({ x = 0, y = 50 }), { re
 hl.bind("XF86Launch1", odyssey("power cycle"))
 hl.bind("CTRL + XF86Launch1", odyssey("capture screenshot full copy"))
 hl.bind("ALT + XF86Launch1", odyssey("capture screenshot active copy"))
-hl.bind("Print", odyssey("capture screenshot region copy"))
+-- Print takes the region screenshot, saved and copied, the way the old satty
+-- binding did. SUPER + SHIFT + F is the file manager, not a screenshot key.
+hl.bind("Print", odyssey("capture screenshot region both"))
 hl.bind("CTRL + Print", odyssey("capture screenshot full copy"))
 hl.bind("ALT + Print", odyssey("capture screenshot active copy"))
 
