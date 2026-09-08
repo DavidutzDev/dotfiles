@@ -4,8 +4,6 @@ function fish_greeting
     fastfetch
 end
 
-bind \cf tmux-sessionizer
-
 # Aliases
 alias ls='eza -al --color=always --group-directories-first --icons' # preferred listing
 alias la='eza -a --color=always --group-directories-first --icons' # all files and dirs
@@ -102,7 +100,16 @@ function backup --argument filename
     cp $filename $filename.bak
 end
 
+source "$HOME/.cargo/env.fish"
+
 # Don't try to peek and see my naughty secret stuff
 if [ -f ~/work/unxwares/config/shell.fish ]
     source ~/work/unxwares/config/shell.fish
+end
+
+fish_add_path /home/davidutz/.spicetify
+
+# Added by jcode installer
+if not contains "/home/davidutz/.local/bin" $PATH
+    set -gx PATH "/home/davidutz/.local/bin" $PATH
 end

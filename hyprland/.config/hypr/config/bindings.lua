@@ -12,7 +12,7 @@ Bindings.Bind(Bindings.NewLeader({}, "F1"), function()
 	hl.exec_cmd(menu .. " -m menus:wallpapers")
 end)
 Bindings.Bind(Bindings.NewLeader({}, "V"), function()
-	hl.exec_cmd(menu .. " -m menus:clipboard")
+	hl.exec_cmd(menu .. " -m clipboard")
 end)
 
 Bindings.Bind(Bindings.NewLeader({}, "Backspace"), function()

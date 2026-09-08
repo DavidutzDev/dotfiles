@@ -1,5 +1,9 @@
 local theme = require("themes.catppuccin-mocha")
 
+-- Headless (software-rendered, over-VNC) session sets HYPR_HEADLESS=1.
+-- llvmpipe can't afford blur/shadow/opacity/animations -> disable them there.
+local headless = os.getenv("HYPR_HEADLESS") == "1"
+
 hl.config({
 	general = {
 		gaps_in = 5,
@@ -22,22 +26,22 @@ hl.config({
 	},
 
 	decoration = {
-		rounding = 15,
+		rounding = headless and 0 or 15,
 		rounding_power = 2,
 
 		-- Change transparency of focused and unfocused windows
-		active_opacity = 0.9,
-		inactive_opacity = 0.8,
+		active_opacity = headless and 1.0 or 0.9,
+		inactive_opacity = headless and 1.0 or 0.8,
 
 		shadow = {
-			enabled = true,
+			enabled = not headless,
 			range = 15,
 			render_power = 3,
 			color = 0xee121212,
 		},
 
 		blur = {
-			enabled = true,
+			enabled = not headless,
 			size = 20,
 			passes = 3,
 			vibrancy = 0.1696,
@@ -45,7 +49,7 @@ hl.config({
 	},
 
 	animations = {
-		enabled = true,
+		enabled = not headless,
 	},
 })
 

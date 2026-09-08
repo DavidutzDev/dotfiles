@@ -41,7 +41,7 @@ Hyprland.Applications.register({
 
 Hyprland.Applications.register({
 	name = "discord",
-	cmd = "legcord --enable-features=WebRTCPipeWireCapturer --ozone-platform-hint=auto --enable-webrtc-pipewire-capturer",
+	cmd = "legcord --enable-features=UseOzonePlatform,WebRTCPipeWireCapturer --ozone-platform=wayland --enable-gpu-rasterization --enable-zero-copy --ignore-gpu-blocklist %U",
 	class = "legcord",
 	workspace = "10",
 	binding = Hyprland.Bindings.NewLeader({ mod.SHIFT }, "D"),
@@ -49,7 +49,7 @@ Hyprland.Applications.register({
 
 Hyprland.Applications.register({
 	name = "fileManager",
-	cmd = "thunar",
+	cmd = "nautilus",
 	binding = Hyprland.Bindings.NewLeader({ mod.SHIFT }, "F"),
 })
 
@@ -91,5 +91,11 @@ Hyprland.Applications.register({
 Hyprland.Applications.register({
 	name = "wepapered-daemon",
 	cmd = "wepaperedctl daemon",
+	autostart = true,
+})
+
+Hyprland.Applications.register({
+	name = "nekoland",
+	cmd = "/home/davidutz/.local/bin/nekoland",
 	autostart = true,
 })

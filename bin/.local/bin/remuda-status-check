@@ -1,0 +1,28 @@
+#!/usr/bin/env bash
+# Compare the sidebar token remuda publishes against live git state.
+# Usage: remuda-status-check [feature-dir]   (default: the demo feature)
+set -u
+DIR="${1:-$HOME/personal/remuda-repo-example-trees/demo}"
+
+echo "== ground truth (git) =="
+total=0
+for d in "$DIR"/*/; do
+  repo=$(basename "$d")
+  head=$(git -C "$d" rev-parse --abbrev-ref HEAD 2>/dev/null) || continue
+  n=$(git -C "$d" status --porcelain 2>/dev/null | wc -l)
+  if [ "$head" = "HEAD" ]; then role="passenger (not counted)"; else role="participant"; fi
+  printf '  %-10s %-28s %s dirty\n' "$repo" "$role" "$n"
+  [ "$head" != "HEAD" ] && total=$((total + n))
+done
+echo "  expected count: ${total}"
+
+echo "== published token (herdr) =="
+herdr workspace list 2>/dev/null \
+  | jq -r '.result.workspaces[] | select(.tokens) | "  " + .label + "  ->  " + .tokens.remuda'
+
+echo "== watcher =="
+if pgrep -f '/remuda watch$' >/dev/null; then
+  echo "  running (pid $(pgrep -f '/remuda watch$' | tr '\n' ' '))"
+else
+  echo "  NOT running"
+fi

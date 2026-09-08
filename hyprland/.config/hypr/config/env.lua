@@ -1,5 +1,8 @@
 local Hyprland = require("core")
 
+-- Headless (over-VNC) session has no nvidia GPU on the host -> use mesa GL.
+local headless = os.getenv("HYPR_HEADLESS") == "1"
+
 Hyprland.Environment.set({
 	-- cursor
 	XCURSOR_SIZE = "24",
@@ -21,7 +24,7 @@ Hyprland.Environment.set({
 	QT_WAYLAND_DISABLE_WINDOWDECORATION = "1",
 	QT_QPA_PLATFORMTHEME = "qt5ct",
 
-	-- Nvidia
-	GBM_BACKEND = "nvidia-drm",
-	__GLX_VENDOR_LIBRARY_NAME = "nvidia",
+	-- Nvidia on the real session; mesa/llvmpipe when headless.
+	GBM_BACKEND = headless and "mesa" or "nvidia-drm",
+	__GLX_VENDOR_LIBRARY_NAME = headless and "mesa" or "nvidia",
 })
