@@ -1,0 +1,8 @@
+# Odyssey-managed artifacts that land inside stowed directories.
+#
+# ~/.local/bin and ~/.config/hypr are stow symlinks into this repo, so Odyssey's
+# installer and its running shell write here. Both files are recreated on every
+# install and rewritten by the shell, and home-sweet-home's ensure_dotfiles_repo
+# aborts on a dirty tree, so they must stay untracked.
+bin/.local/bin/odyssey
+hyprland/.config/hypr/odyssey.lua

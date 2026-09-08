@@ -15,12 +15,6 @@ Hyprland.Applications.register({
 })
 
 Hyprland.Applications.register({
-	name = "bar",
-	cmd = "waybar",
-	autostart = true,
-})
-
-Hyprland.Applications.register({
 	name = "terminal",
 	cmd = "ghostty",
 	class = "com.mitchellh.ghostty",
@@ -28,15 +22,9 @@ Hyprland.Applications.register({
 })
 
 Hyprland.Applications.register({
-	name = "nc",
-	cmd = "swaync-client -t -sw",
-	binding = Hyprland.Bindings.NewLeader({}, "N"),
-})
-
-Hyprland.Applications.register({
 	name = "browser",
 	cmd = "zen-browser",
-	binding = Hyprland.Bindings.NewLeader({ mod.SHIFT }, "B"),
+	binding = Hyprland.Bindings.NewLeader({}, "B"),
 })
 
 Hyprland.Applications.register({
@@ -50,25 +38,7 @@ Hyprland.Applications.register({
 Hyprland.Applications.register({
 	name = "fileManager",
 	cmd = "nautilus",
-	binding = Hyprland.Bindings.NewLeader({ mod.SHIFT }, "F"),
-})
-
-Hyprland.Applications.register({
-	name = "menu",
-	cmd = "walker",
-	binding = Hyprland.Bindings.NewLeader({}, "SPACE"),
-})
-
-Hyprland.Applications.register({
-	name = "menu-service",
-	cmd = "walker --gapplication-service",
-	autostart = true,
-})
-
-Hyprland.Applications.register({
-	name = "menu-provider",
-	cmd = "elephant",
-	autostart = true,
+	binding = Hyprland.Bindings.NewLeader({}, "E"),
 })
 
 Hyprland.Applications.register({

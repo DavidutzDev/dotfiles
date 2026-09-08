@@ -10,7 +10,8 @@ Hyprland.Autostart.setSession({
 	"gsettings set org.gnome.desktop.interface cursor-theme 'default'",
 	"gsettings set org.gnome.desktop.interface font-theme 'JetBrainsMonoNL Nerd Font Medium 11'",
 
-	-- clipboard history: elephant's clipboard provider (SUPER+V -> walker -m clipboard)
+	-- clipboard history: Odyssey's clipboard panel on SUPER+V, fed by the
+	-- cliphist watcher that odyssey.lua starts.
 	"sh -c 'wl-copy --clear; wl-copy --primary --clear'",
 	"wl-clip-persist --clipboard regular &",
 })
