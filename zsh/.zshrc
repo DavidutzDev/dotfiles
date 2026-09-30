@@ -18,13 +18,39 @@ plugins=(
   battery
 )
 
-# zsh-autocomplete rebinds completion widgets, so it has to load before Oh My Zsh.
-source "$ZSH/custom/plugins/zsh-autocomplete/zsh-autocomplete.plugin.zsh"
+# zsh-autocomplete keeps its helper functions (_autocomplete__unambiguous and
+# friends) in Completions/, which only ever get autoloaded by a compinit run that can
+# see that directory on fpath. The plugin's own compinit is a no-op once Oh My Zsh has
+# run one, so add the directory here and let Oh My Zsh's compinit pick the helpers up.
+fpath=("$ZSH/custom/plugins/zsh-autocomplete/Completions" $fpath)
 
 source "$ZSH/oh-my-zsh.sh"
 
+# Order matters. Oh My Zsh's lib/key-bindings.zsh rebinds Tab, Up, Down and ^R, so
+# zsh-autocomplete has to load *after* it or those bindings are silently overwritten
+# and the plugin is inert. zsh-syntax-highlighting stays last: it wraps every widget
+# defined before it, so anything sourced after it goes unhighlighted.
+source "$ZSH/custom/plugins/zsh-autocomplete/zsh-autocomplete.plugin.zsh"
 source "$ZSH/custom/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh"
 source "$ZSH/custom/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
+
+# Autocomplete binds Tab to `complete-word`, which inserts the first match and stops;
+# cycling only begins once the menu is already open (Down or Alt-Down). Point Tab at
+# the menu instead and it behaves like fish: the first Tab opens the list, every Tab
+# after that steps to the next entry, because the `menuselect` keymap already maps Tab
+# to `menu-complete`. Shift-Tab steps back, there and on the command line.
+bindkey '^I' menu-select
+
+# --- history ---
+
+# lib/history.zsh pairs HISTSIZE=50000 with SAVEHIST=10000, so four fifths of the
+# in-memory history is dropped on exit. Override after oh-my-zsh.sh has run.
+HISTSIZE=100000
+SAVEHIST=100000
+
+setopt HIST_IGNORE_ALL_DUPS  # a repeat evicts the older copy, keeping suggestions fresh
+setopt HIST_REDUCE_BLANKS
+setopt HIST_VERIFY           # !! expands onto the line instead of running unseen
 
 # --- path ---
 
@@ -83,6 +109,10 @@ backup() {
 
 command -v zoxide >/dev/null && eval "$(zoxide init zsh)"
 command -v direnv >/dev/null && eval "$(direnv hook zsh)"
+
+# Atuin owns ^R only. Up arrow is left to zsh-autocomplete, whose inline history menu
+# is the closer match to fish; atuin's own up-arrow takes over the whole screen.
+command -v atuin >/dev/null && eval "$(atuin init zsh --disable-up-arrow)"
 
 # Don't try to peek and see my naughty secret stuff
 for _work_rc in "$HOME/work/unxwares/config/shell.zsh" "$HOME/work/unxwares/config/shell.sh"; do

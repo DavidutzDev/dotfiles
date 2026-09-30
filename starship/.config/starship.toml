@@ -1,0 +1,9 @@
+# Only the transient profile lives here. Everything else is left on Starship's
+# built-in defaults, which is what the normal prompt already uses.
+#
+# ~/.zshrc rewrites PROMPT into `starship prompt --profile transient ...` on
+# zle-line-finish, so a profile under this exact name has to exist or Starship
+# aborts with `Profile "transient" not found` after every command.
+
+[profiles]
+transient = "$character"
